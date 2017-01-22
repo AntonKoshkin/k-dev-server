@@ -24,7 +24,7 @@ exports.connect = (url, done) => {
 exports.get = () => state.db;
 
 function connect(cb) {
-	MongoClient.connect(config.get('mongo:uri'), (err, db) => {
+	MongoClient.connect(config.get('mongo:kdev'), (err, db) => {
 		if (err) {
 			return cb(err);
 		}
@@ -37,41 +37,56 @@ function drop(cb) {
 	state.db.dropDatabase(cb);
 }
 
-function writePersonal(cb) {
-	state.db.collection('personal').insert(
-		{
-			id  : 1,
+const writeData = {
+	personal(cb) {
+		state.db.collection('personal').insert({
+			_id : 1,
 			name: {
 				first : 'firstName',
 				middle: 'middleName',
 				last  : 'lastName',
 			},
-			birthDate: {
-				day  : 'birthDay',
-				month: 'birthMonth',
-				year : 'birthYear',
+			birth: {
+				day  : 10,
+				month: 2,
+				year : 1990,
 			},
-			photo      : null,
-			livingPlace: {
-				country: 'livingCountry',
-				state  : 'livingState',
-				city   : 'livingCity',
-			},
-		}
-	);
-	cb();
-}
+			images: [
+				{
+					small: '/qwe/qwe.small.jpg',
+					large: '/qwe/qwe.large.jpg',
+					thumb: '/qwe/qwe.thumb.jpg',
+				}, {
+					small: '/qwe/qwe.small.jpg',
+					large: '/qwe/qwe.large.jpg',
+					thumb: '/qwe/qwe.thumb.jpg',
+				}
+			],
+			contacts: [
+				{
+					name : 'name',
+					title: 'title',
+					link : 'link',
+				}, {
+					name : 'name2',
+					title: 'title2',
+					link : 'link2',
+				}
+			],
+		}, cb);
+	},
+};
 
 function write(cb) {
 	asyncParallel([
-		writePersonal
+		writeData.personal
 	], cb);
 }
 
-exports.createDb = () => {
+exports.createDb = (cb) => {
 	asyncSeries([
 		connect,
 		drop,
 		write
-	]);
+	], cb);
 };

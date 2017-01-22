@@ -1,7 +1,7 @@
 {
-	"port": 3000,
+	"port": 3012,
 	"mongo": {
-		"uri": "mongodb://localhost:27017/myapi"
+		"kdev": "mongodb://localhost:27017/k-dev"
 	},
 	"session": {
 		"secret": "KillerIsJim",
@@ -11,5 +11,8 @@
 			"httpOnly": true,
 			"maxAge": null
 		}
+	},
+	"pathTo": {
+		"images": "/assets/images"
 	}
 }
