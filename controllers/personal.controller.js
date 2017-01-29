@@ -1,7 +1,7 @@
-const personal = require('../models/personal.model');
+const personalModel = require('../models/personal.model');
 
 exports.get = (req, res) => {
-	personal.get((err, doc) => {
+	personalModel.get((err, doc) => {
 		if (err) {
 			console.log(err);
 			res.sendStatus(500);
@@ -12,7 +12,7 @@ exports.get = (req, res) => {
 };
 
 exports.put = (req, res) => {
-	personal.put(
+	personalModel.put(
 		req.body,
 		(err, result) => {
 			if (err) {
@@ -26,8 +26,7 @@ exports.put = (req, res) => {
 };
 
 exports.addImage = (req, res) => {
-	console.log('files', req.body)
-	personal.addImage(
+	personalModel.addImage(
 		req.body,
 		(err, result) => {
 			if (err) {

@@ -39,10 +39,6 @@ exports.addImage = (img, cb) => {
 	db.get().collection('personal').updateOne(
 		{_id: 1},
 		{$push: {images: image}},
-		(err, result) => {
-			console.log('err', err)
-			console.log('res', result)
-			cb(err, result)
-		}
+		(err, result) => cb(err, result)
 	);
 };

@@ -51,7 +51,7 @@ const writeData = {
 				month: 2,
 				year : 1990,
 			},
-			images: [
+			image: [
 				{
 					small: '/qwe/qwe.small.jpg',
 					large: '/qwe/qwe.large.jpg',
@@ -75,11 +75,39 @@ const writeData = {
 			],
 		}, cb);
 	},
+	portfolio(cb) {
+		state.db.collection('portfolio').insert({
+			title: 'one portfolio work',
+			image: {
+				small: 'small.image',
+				large: 'large.image',
+			},
+			description: [
+				{
+					title    : 'block 1 title',
+					paragraph: 'Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Послушавшись свой даже вдали несколько строчка если. Пояс предупреждал скатился подпоясал инициал. Дал даль решила живет переписали языкового переписывается предложения.',
+				}, {
+					title    : 'block 2 title',
+					paragraph: 'Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Правилами раз всеми приставка до, скатился букв речью эта даль курсивных города повстречался переписали по всей проектах меня вопрос парадигматическая. Родного.',
+				}
+			],
+			links: [
+				{
+					place: 'first place',
+					link : 'place/first.qwe',
+				}, {
+					place: 'second place',
+					link : 'place/seconf.qwe',
+				}
+			],
+		}, cb);
+	},
 };
 
 function write(cb) {
 	asyncParallel([
-		writeData.personal
+		writeData.personal,
+		writeData.portfolio
 	], cb);
 }
 

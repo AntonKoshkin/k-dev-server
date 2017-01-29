@@ -1,5 +1,5 @@
 const personalController	= require('../controllers/personal.controller');
-// const bodyParser				= require('body-parser');
+const bodyParser				= require('body-parser');
 
 module.exports = app => {
 	app.get('/personal', personalController.get);
@@ -8,11 +8,11 @@ module.exports = app => {
 
 	app.post(
 		'/personal/image',
-		// bodyParser.urlencoded({
-		// 	keepExtensions: true,
-		// 	limit         : 1024 * 1024 * 10,
-		// 	defer         : true,
-		// 	extended      : true,
-		// }),
+		bodyParser.urlencoded({
+			keepExtensions: true,
+			limit         : 1024 * 1024 * 10,
+			defer         : true,
+			extended      : true,
+		}),
 		personalController.addImage);
 };
