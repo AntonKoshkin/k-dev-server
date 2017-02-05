@@ -11,6 +11,8 @@ exports.get = cb => {
 		if (docToSend._id) {
 			delete docToSend._id;
 		}
+		docToSend.phone = docToSend.phone.split('').reverse().join('');
+		docToSend.mail = docToSend.mail.split('').reverse().join('');
 		cb(err, docToSend);
 	});
 };
