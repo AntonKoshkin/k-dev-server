@@ -8,6 +8,16 @@ exports.get = cb => {
 		});
 };
 
+exports.getOne = (id, cb) => {
+	db.get().collection('portfolio')
+		.findOne(
+			{_id: ObjectID(id)},
+			(err, docs) => {
+				cb(err, docs);
+			}
+		);
+};
+
 exports.post = (portfolioItem, cb) => {
 	db.get().collection('portfolio')
 		.insert(

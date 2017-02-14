@@ -79,11 +79,23 @@ const writeData = {
 	portfolio(cb) {
 		state.db.collection('portfolio').insert({
 			title: 'one portfolio work',
-			image: {
-				small: 'small.image',
-				large: 'large.image',
-			},
-			description: [
+
+			description: 'Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Рукопись живет несколько лучше пояс что текстами грамматики не, эта!',
+
+			images: [
+				{
+					small: 'https://pp.vk.me/c638329/v638329785/1910d/XJb1caJ2Bwg.jpg',
+					large: 'large.image',
+					alt  : 'some alt',
+					main : true,
+				}, {
+					small: 'small.image',
+					large: 'large.image',
+					alt  : 'some alt',
+					main : false,
+				}
+			],
+			descriptions: [
 				{
 					title    : 'block 1 title',
 					paragraph: 'Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Послушавшись свой даже вдали несколько строчка если. Пояс предупреждал скатился подпоясал инициал. Дал даль решила живет переписали языкового переписывается предложения.',
@@ -94,11 +106,13 @@ const writeData = {
 			],
 			links: [
 				{
-					place: 'first place',
-					link : 'place/first.qwe',
+					name: 'first place',
+					link: 'place/first.qwe',
+					main: true,
 				}, {
-					place: 'second place',
-					link : 'place/seconf.qwe',
+					name: 'second place',
+					link: 'place/seconf.qwe',
+					main: false,
 				}
 			],
 		}, cb);
