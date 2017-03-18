@@ -23,6 +23,8 @@ if (process.env.NODE_ENV === 'production') {
 			require('./routes')(app);
 			console.log('api app started');
 		});
+
+		return false;
 	});
 } else {
 	console.log('development mode');
@@ -33,4 +35,3 @@ if (process.env.NODE_ENV === 'production') {
 		});
 	});
 }
-

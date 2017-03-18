@@ -18,7 +18,11 @@ exports.connect = (url, done) => {
 		}
 		state.db = db;
 		done();
+
+		return false;
 	});
+
+	return false;
 };
 
 exports.get = () => state.db;
@@ -30,6 +34,8 @@ function connect(cb) {
 		}
 		state.db = db;
 		cb();
+
+		return false;
 	});
 }
 
@@ -77,45 +83,69 @@ const writeData = {
 		}, cb);
 	},
 	portfolio(cb) {
-		state.db.collection('portfolio').insert({
-			title: 'one portfolio work',
+		state.db.collection('portfolio').insert([
+			{
+				title: 'one portfolio work',
 
-			description: 'Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Рукопись живет несколько лучше пояс что текстами грамматики не, эта!',
+				description    : 'Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Рукопись живет несколько лучше пояс что текстами грамматики не, эта!',
+				descriptionFull: 'block 1 full desk',
 
-			images: [
-				{
-					small: 'https://pp.vk.me/c638329/v638329785/1910d/XJb1caJ2Bwg.jpg',
-					large: 'large.image',
-					alt  : 'some alt',
-					main : true,
-				}, {
-					small: 'small.image',
-					large: 'large.image',
-					alt  : 'some alt',
-					main : false,
-				}
-			],
-			descriptions: [
-				{
-					title    : 'block 1 title',
-					paragraph: 'Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Послушавшись свой даже вдали несколько строчка если. Пояс предупреждал скатился подпоясал инициал. Дал даль решила живет переписали языкового переписывается предложения.',
-				}, {
-					title    : 'block 2 title',
-					paragraph: 'Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Правилами раз всеми приставка до, скатился букв речью эта даль курсивных города повстречался переписали по всей проектах меня вопрос парадигматическая. Родного.',
-				}
-			],
-			links: [
-				{
-					name: 'first place',
-					link: 'place/first.qwe',
-					main: true,
-				}, {
-					name: 'second place',
-					link: 'place/seconf.qwe',
-					main: false,
-				}
-			],
-		}, cb);
+				images: [
+					{
+						small: 'https://pp.vk.me/c638329/v638329785/1910d/XJb1caJ2Bwg.jpg',
+						large: 'large.image',
+						alt  : 'some alt',
+						main : true,
+					}, {
+						small: 'small.image',
+						large: 'large.image',
+						alt  : 'some alt',
+						main : false,
+					}
+				],
+				links: [
+					{
+						name: 'first place',
+						link: 'place/first.qwe',
+						main: true,
+					}, {
+						name: 'second place',
+						link: 'place/seconf.qwe',
+						main: false,
+					}
+				],
+			}, {
+				title: 'two portfolio work',
+
+				description    : 'Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Рукопись живет несколько лучше пояс что текстами грамматики не, эта!',
+				descriptionFull: 'block 1 full desk',
+
+				images: [
+					{
+						small: 'https://pp.userapi.com/c638329/v638329785/18fff/QLsMcWd5V3c.jpg',
+						large: 'large.image',
+						alt  : 'some alt',
+						main : true,
+					}, {
+						small: 'small.image',
+						large: 'large.image',
+						alt  : 'some alt',
+						main : false,
+					}
+				],
+				links: [
+					{
+						name: 'first place',
+						link: 'place/first.qwe',
+						main: true,
+					}, {
+						name: 'second place',
+						link: 'place/seconf.qwe',
+						main: false,
+					}
+				],
+			}
+		], cb);
 	},
 };
 
