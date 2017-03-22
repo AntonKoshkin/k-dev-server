@@ -160,7 +160,7 @@ const writeData = {
 					{
 						small: '/vinyl__1--large.jpg',
 						large: '/vinyl__1--large.jpg',
-						alt  : '/Первый экран сайта vinyl.jata.ru',
+						alt  : 'Первый экран сайта vinyl.jata.ru',
 						main : true,
 					}
 				],
@@ -194,7 +194,7 @@ const writeData = {
 					{
 						small: '/jata__1--large.jpg',
 						large: '/jata__1--large.jpg',
-						alt  : '/Первый экран сайта jata.ru',
+						alt  : 'Первый экран сайта jata.ru',
 						main : true,
 					}
 				],
@@ -228,7 +228,7 @@ const writeData = {
 					{
 						small: '/jata-cabinets__1--large.jpg',
 						large: '/jata-cabinets__1--large.jpg',
-						alt  : '/Первый экран кабинетов jata.ru',
+						alt  : 'Первый экран кабинетов jata.ru',
 						main : true,
 					}
 				],
@@ -262,7 +262,7 @@ const writeData = {
 					{
 						small: '/daduma__1--large.jpg',
 						large: '/daduma__1--large.jpg',
-						alt  : '/Первый экран сайта daduma.ru',
+						alt  : 'Первый экран сайта daduma.ru',
 						main : true,
 					}
 				],
@@ -296,7 +296,7 @@ const writeData = {
 					{
 						small: '/k-dev__1--large.jpg',
 						large: '/k-dev__1--large.jpg',
-						alt  : '/Первый экран сайта daduma.ru',
+						alt  : 'Первый экран сайта daduma.ru',
 						main : true,
 					}
 				],
@@ -330,7 +330,7 @@ const writeData = {
 					{
 						small: '/koshkin__1--large.jpg',
 						large: '/koshkin__1--large.jpg',
-						alt  : '/Первый экран этого сайта.',
+						alt  : 'Первый экран этого сайта.',
 						main : true,
 					}
 				],

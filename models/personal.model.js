@@ -5,14 +5,14 @@ const db				= require('../db');
 // const CONFIG = require('../config');
 
 exports.get = cb => {
-	db.get().collection('personal').find().toArray((err, doc) => {
-		let docToSend = doc[0];
-
+	db.get().collection('personal').find().toArray((err, docs) => {
+		let docToSend = docs[0];
 		if (docToSend._id) {
 			delete docToSend._id;
 		}
 		docToSend.phone = docToSend.phone.split('').reverse().join('');
 		docToSend.mail = docToSend.mail.split('').reverse().join('');
+		
 		cb(err, docToSend);
 	});
 };

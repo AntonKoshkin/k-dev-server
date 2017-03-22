@@ -10,7 +10,9 @@ exports.get = (req, res) => {
 		docs.forEach(project => {
 			project.image	= project.images.filter(image => image.main)[0];
 			for (let img in project.image) {
-				project.image[img] = '/assets/img/portfolio/' + project.image[img];
+				if (img !== 'main' && img !== 'alt') {
+					project.image[img] = '/assets/img/portfolio' + project.image[img];
+				}
 			}
 
 			delete project._id; // eslint-disable-line
@@ -34,57 +36,58 @@ exports.getOne = (req, res) => {
 			if (doc) {
 				doc.images.forEach(image => {
 					for (let img in image) {
-						if (typeof img === 'string') {
-							image[img] = '/assets/img/portfolio/' + image[img];
+						if (img !== 'main' && img !== 'alt') {
+							console.log('img', img)
+							image[img] = '/assets/img/portfolio' + image[img];
 						}
 					}
 				});
 				delete doc.description;
 				delete doc._id; // eslint-disable-line
 			}
-			res.send(doc);
+			res.end(doc);
 		}
 	);
 };
 
-exports.post = (req, res) => {
-	portfolioModel.post(
-		req.body,
-		(err, result) => {
-			if (err) {
-				console.log(err);
-				res.sendStatus(500);
-				return;
-			}
-			res.send(result);
-		}
-	);
-};
+// exports.post = (req, res) => {
+// 	portfolioModel.post(
+// 		req.body,
+// 		(err, result) => {
+// 			if (err) {
+// 				console.log(err);
+// 				res.sendStatus(500);
+// 				return;
+// 			}
+// 			res.send(result);
+// 		}
+// 	);
+// };
 
-exports.delete = (req, res) => {
-	portfolioModel.delete(
-		req.body.id,
-		(err, result) => {
-			if (err) {
-				console.log(err);
-				res.sendStatus(500);
-				return;
-			}
-			res.send(result);
-		}
-	);
-};
+// exports.delete = (req, res) => {
+// 	portfolioModel.delete(
+// 		req.body.id,
+// 		(err, result) => {
+// 			if (err) {
+// 				console.log(err);
+// 				res.sendStatus(500);
+// 				return;
+// 			}
+// 			res.send(result);
+// 		}
+// 	);
+// };
 
-exports.put = (req, res) => {
-	portfolioModel.put(
-		req.body,
-		(err, docs) => {
-			if (err) {
-				console.log(err);
-				res.sendStatus(500);
-				return;
-			}
-			res.send(docs);
-		}
-	);
-};
+// exports.put = (req, res) => {
+// 	portfolioModel.put(
+// 		req.body,
+// 		(err, docs) => {
+// 			if (err) {
+// 				console.log(err);
+// 				res.sendStatus(500);
+// 				return;
+// 			}
+// 			res.send(docs);
+// 		}
+// 	);
+// };

@@ -1,8 +1,8 @@
-const express		= require('express');
-const path			= require('path');
+// const assets		= require('./assets.routes');
 const personal		= require('./personal.routes');
 const portfolio	= require('./portfolio.routes');
-// const assets		= require('./assets.routes');
+const static		= require('./static.routes');
+// const fs				= require('fs');
 
 module.exports = app => {
 	if (process.env.NODE_ENV === 'development') {
@@ -22,6 +22,15 @@ module.exports = app => {
 
 	personal(app);
 	portfolio(app);
-	app.use('/', express.static(path.join(__dirname, 'public/dist')));
 	// assets(app);
+	static(app);
+
+	// assets(app);
+	// app.get('/', function(req, res) {
+	// 	console.log(req.originalUrl);
+	// 	res.end(fs.readFileSync('../k-dev/dist/index.html'));
+	// });
+	// app.get('/*', function(req, res) {
+	// 	res.end(fs.readFileSync('../k-dev/dist/' + req.originalUrl));
+	// });
 };
