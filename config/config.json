@@ -1,5 +1,6 @@
 {
 	"port": 3012,
+	"portProd": 80,
 	"mongo": {
 		"kdev": "mongodb://localhost:27017/k-dev"
 	},
