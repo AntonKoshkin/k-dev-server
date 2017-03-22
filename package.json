@@ -1,11 +1,12 @@
 {
   "name": "k-dev-server",
-  "version": "0.1.0 pre alpha",
+  "version": "0.1.0",
   "description": "server for my k-dev site",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=development node app.js"
+    "start": "NODE_ENV=development node app.js",
+    "work": "NODE_ENV=production node app.js"
   },
   "repository": {
     "type": "git",
