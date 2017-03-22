@@ -1,5 +1,6 @@
 const personal		= require('./personal.routes');
 const portfolio	= require('./portfolio.routes');
+// const assets		= require('./assets.routes');
 
 module.exports = app => {
 	if (process.env.NODE_ENV === 'development') {
@@ -19,4 +20,5 @@ module.exports = app => {
 
 	personal(app);
 	portfolio(app);
+	// assets(app);
 };

@@ -8,10 +8,10 @@ exports.get = cb => {
 		});
 };
 
-exports.getOne = (id, cb) => {
+exports.getOne = (name, cb) => {
 	db.get().collection('portfolio')
 		.findOne(
-			{_id: ObjectID(id)},
+			{name},
 			(err, docs) => {
 				cb(err, docs);
 			}

@@ -3,7 +3,7 @@ const portfolioController	= require('../controllers/portfolio.controller');
 module.exports = app => {
 	app.get('/portfolio', portfolioController.get);
 
-	app.get('/portfolio/:id', portfolioController.getOne);
+	app.get('/portfolio/:name', portfolioController.getOne);
 
 	app.post('/portfolio', portfolioController.post);
 

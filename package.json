@@ -1,6 +1,6 @@
 {
   "name": "k-dev-server",
-  "version": "0.0.1",
+  "version": "0.1.0 pre alpha",
   "description": "server for my k-dev site",
   "main": "app.js",
   "scripts": {

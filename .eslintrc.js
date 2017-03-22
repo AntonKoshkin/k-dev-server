@@ -32,6 +32,7 @@ module.exports = {
 		"space-before-function-paren": ["error", "never"],
 		"no-plusplus": "off",
 		"no-restricted-syntax": ["error", "WithStatement"],
-		"no-floating-decimal": "off"
+		"no-floating-decimal": "off",
+		"guard-for-in": "off"
 	},
 }

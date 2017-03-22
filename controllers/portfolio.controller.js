@@ -8,16 +8,15 @@ exports.get = (req, res) => {
 			return;
 		}
 		docs.forEach(project => {
-			project.link	= project.links.filter(link => link.main)[0];
 			project.image	= project.images.filter(image => image.main)[0];
+			for (let img in project.image) {
+				project.image[img] = '/assets/img/portfolio/' + project.image[img];
+			}
 
-			project.id = project._id; // eslint-disable-line
-
-			delete project.link.main;
-			delete project.images;
-			delete project.descriptions;
-			delete project.links;
 			delete project._id; // eslint-disable-line
+			delete project.descriptionFull;
+			delete project.params;
+			delete project.images;
 		});
 		res.send(docs);
 	});
@@ -25,12 +24,23 @@ exports.get = (req, res) => {
 
 exports.getOne = (req, res) => {
 	portfolioModel.getOne(
-		req.params.id,
+		req.params.name,
 		(err, doc) => {
 			if (err) {
 				console.log(err);
 				res.sendStatus(500);
 				return;
+			}
+			if (doc) {
+				doc.images.forEach(image => {
+					for (let img in image) {
+						if (typeof img === 'string') {
+							image[img] = '/assets/img/portfolio/' + image[img];
+						}
+					}
+				});
+				delete doc.description;
+				delete doc._id; // eslint-disable-line
 			}
 			res.send(doc);
 		}
