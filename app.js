@@ -5,6 +5,7 @@ const fileUpload	= require('express-fileupload');
 const logger		= require('morgan');
 const bodyParser	= require('body-parser');
 const path			= require('path');
+const compression	= require('compression');
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(fileUpload());
 app.use(logger('dev'));
 app.use(bodyParser.json({limit: '5mb'}));
 app.use(bodyParser.urlencoded({extended: false, limit: '5mb'}));
+app.use(compression());
 
 // app.get('/', function(req, res) {
 // 	res.sendFile('index.html', {root: '../k-dev/dist'});

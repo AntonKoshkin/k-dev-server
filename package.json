@@ -23,6 +23,7 @@
   "dependencies": {
     "async": "^2.1.4",
     "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
     "concurrently": "^3.4.0",
     "cookie-parser": "^1.4.3",
     "eslint": "^3.18.0",
