@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "NODE_ENV=development node app.js",
     "work": "NODE_ENV=production node app.js",
-    "all": "sudo service mongod tart && npm run work"
+    "all": "sudo service mongod tart && npm run work",
+    "dev:server": "concurrently \"cd public && npm run devbuild\" \"npm run dev\""
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   "dependencies": {
     "async": "^2.1.4",
     "body-parser": "^1.15.2",
+    "concurrently": "^3.4.0",
     "cookie-parser": "^1.4.3",
     "eslint": "^3.18.0",
     "eslint-config-airbnb-base": "^11.1.1",

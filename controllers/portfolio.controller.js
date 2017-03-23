@@ -21,7 +21,7 @@ exports.get = (req, res) => {
 			delete project.params;
 			delete project.images;
 		});
-		res.send(docs);
+		res.send(JSON.stringify(docs));
 	});
 };
 
@@ -47,7 +47,7 @@ exports.getOne = (req, res) => {
 				delete doc.description;
 				delete doc._id; // eslint-disable-line
 			}
-			res.end(doc);
+			res.end(JSON.stringify(doc));
 		}
 	);
 };

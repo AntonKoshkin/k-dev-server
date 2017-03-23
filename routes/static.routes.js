@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const CONFIG = require('../config');
 
 module.exports = app => {
 	// app.get('/assets', function(req, res) {
@@ -14,14 +15,14 @@ module.exports = app => {
 
 	app.get('/', function(req, res) {
 		console.log('/', req.originalUrl)
-		res.sendFile('index.html', {root: '../k-dev/dist'});
+		res.sendFile('index.html', {root: CONFIG.get('pathTo:public')});
 	});
 	app.get('/*', function(req, res) {
 		console.log('*', req.originalUrl)
-		if (fs.existsSync(path.join('../k-dev/dist', req.originalUrl))) {
-			res.sendFile(req.originalUrl, {root: '../k-dev/dist'});
+		if (fs.existsSync(path.join(CONFIG.get('pathTo:public'), req.originalUrl))) {
+			res.sendFile(req.originalUrl, {root: CONFIG.get('pathTo:public')});
 		} else {
-			res.sendFile('index.html', {root: '../k-dev/dist'});
+			res.sendFile('index.html', {root: CONFIG.get('pathTo:public')});
 		}
 		// fs.readFileSync(path.join('../k-dev/dist', req.originalUrl), (err, file) => {
 		// 	if (err) {
