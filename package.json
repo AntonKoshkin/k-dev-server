@@ -5,8 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=development node app.js",
-    "work": "NODE_ENV=production node app.js"
+    "dev": "NODE_ENV=development node app.js",
+    "work": "NODE_ENV=production node app.js",
+    "all": "sudo service mongod tart && npm run work"
   },
   "repository": {
     "type": "git",

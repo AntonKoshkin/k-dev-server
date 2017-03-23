@@ -27,7 +27,7 @@ if (process.env.NODE_ENV === 'production') {
 			console.log(err);
 			return false;
 		}
-		app.listen(config.get(process.argv[2] || 'portProd'), () => {
+		app.listen(config.get('portProd'), () => {
 			require('./routes')(app);
 			console.log(process.env.NODE_ENV, 'api started');
 		});
@@ -37,7 +37,7 @@ if (process.env.NODE_ENV === 'production') {
 } else {
 	console.log('development mode');
 	db.createDb(() => {
-		app.listen(config.get(process.argv[2] || 'port'), () => {
+		app.listen(process.argv[2] || config.get('port'), () => {
 			require('./routes')(app);
 			console.log(process.env.NODE_ENV, 'api started');
 		});

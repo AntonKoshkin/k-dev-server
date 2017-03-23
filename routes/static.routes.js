@@ -2,10 +2,6 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = app => {
-	app.get('/*', (req, res, next) => {
-		console.log('all', req.originalUrl);
-		next();
-	})
 	// app.get('/assets', function(req, res) {
 	// 	console.log('assets', req.originalUrl)
 	// 	res.sendFile(path.join(__dirname, req.originalUrl));

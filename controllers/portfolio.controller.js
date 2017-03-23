@@ -1,6 +1,7 @@
 const portfolioModel = require('../models/portfolio.model');
 
 exports.get = (req, res) => {
+	console.log('portfolio controller get')
 	portfolioModel.get((err, docs) => {
 		if (err) {
 			console.log(err);
@@ -25,6 +26,7 @@ exports.get = (req, res) => {
 };
 
 exports.getOne = (req, res) => {
+	console.log('portfolio controller get one');
 	portfolioModel.getOne(
 		req.params.name,
 		(err, doc) => {
